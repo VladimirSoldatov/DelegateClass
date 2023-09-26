@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using static System.Console;
 namespace SimpleProject
 {
@@ -30,6 +32,25 @@ namespace SimpleProject
     {
         static void Main(string[] args)
         {
+            Hashtable hashtable = new Hashtable();
+            hashtable.Add("One", 1);
+            hashtable.Add("Two", 2);
+            hashtable.Add("Three", "Три");
+            
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            dict.Add("One", "Один");
+            dict.Add("Two", "Два");
+            ArrayList a = new ArrayList();
+            List <string>values = new List<string>();
+            SortedList sortedList = new SortedList();
+            sortedList.Add(2, 1110);
+            sortedList.Add(1, 2140);
+            sortedList.Add(3, 3150);
+            for(int i = 0; i < sortedList.Count; i++)
+            {
+                Console.WriteLine($"{sortedList.GetKey(i)} - {sortedList.GetByIndex(i)}");
+            }
+
             Calculator calc = new Calculator();
             Write("Enter an expression: ");
             string expression = ReadLine();

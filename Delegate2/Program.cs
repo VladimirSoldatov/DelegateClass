@@ -31,10 +31,10 @@ namespace SimpleProject
         static void Main(string[] args)
         {
             Calculator calc = new Calculator();
-            CalcDelegate delAll = null;
+        /*    CalcDelegate delAll = null;
             CalcDelegate delDiv = calc.Div;
             delAll += delDiv; // добавления в список вызовов
-            delAll -= delDiv; // удаления из списка вызовов
+            delAll -= delDiv; // удаления из списка вызовов*/
             Write("Enter an expression: ");
             string expression = ReadLine();
             char sign = ' ';
@@ -74,7 +74,13 @@ namespace SimpleProject
                         throw new
                         InvalidOperationException();
                 }
-                WriteLine($"Result: {del(double.Parse(numbers[0]), double.Parse(numbers[1]))}");
+                del += calc.Mult;
+                del += calc.Mult;
+                foreach (CalcDelegate item in del.GetInvocationList())
+                {
+           
+                    WriteLine($"Result: {item(double.Parse(numbers[0]), double.Parse(numbers[1]))}");
+                }
             }
             catch (Exception ex)
             {
